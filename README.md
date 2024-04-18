@@ -4,10 +4,13 @@
 Mastering the tools in [this guide ](https://www.notion.so/AI-Roadmap-2024-b06e9b87fe8940f191b68d7100f01eed)— including programming languages, machine learning libraries, and cloud platforms — is crucial for data science success.
 
 I've categorized them based on difficulty:
-* Green: Mandatory and easiest
-* Yellow: Mediocre tough
-* Red: Toughest and for pros
+* <span style="color:green"> *Green* text</span>: Mandatory and easiest
+* <span style="color:yellow"> *Yellow* text</span>: Mediocre tough
+* <span style="color:red"> *Red* text</span>: Toughest and for pros
+(color codes are present [here](https://www.notion.so/AI-Roadmap-2024-b06e9b87fe8940f191b68d7100f01eed))
 
+
+---
 **Programming Languages:**
 
 - Python
