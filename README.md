@@ -24,7 +24,7 @@ I've categorized them based on difficulty:
 - Numpy
 - Pandas
 - TensorFlow
-- PyTorch
+- [PyTorch](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/fastbook.ipynb)
 - XGBoost
 - LightGBM
 - **Keras** (High-level deep learning API)
