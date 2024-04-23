@@ -106,6 +106,7 @@ I've categorized them based on difficulty:
     - Generative AI
 - Reinforcement Learning
 - Bayesian Optimization
+- [Statistics](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/Statistics/statistics.md) 
 
 ---
 
