@@ -9,6 +9,8 @@ I've categorized them based on difficulty:
 * <span style="color:red"> Red text</span>: Toughest and for pros
 (color codes are present [here](https://www.notion.so/AI-Roadmap-2024-b06e9b87fe8940f191b68d7100f01eed))
 
+Work in progress:
+1. Updating the pytorch material with notebooks containing code & concepts.(2/20 done)
 
 ---
 **Programming Languages:**
@@ -24,7 +26,10 @@ I've categorized them based on difficulty:
 - Numpy
 - Pandas
 - TensorFlow
-- [PyTorch](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/fastbook.ipynb)
+- PyTorch
+  - [introduction](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/ch1.introduction.ipynb) 2h
+  - [into_production](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/ch2_production.ipynb) 2h
+  - [mninst](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/ch3.mnist.ipynb)
 - XGBoost
 - LightGBM
 - **Keras** (High-level deep learning API)
