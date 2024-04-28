@@ -29,7 +29,7 @@ Work in progress:
 - PyTorch
   - [introduction](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/ch1.introduction.ipynb) 2h
   - [into_production](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/ch2_production.ipynb) 2h
-  - [mninst](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/ch3.mnist.ipynb)
+  - [mninst](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/ch3.mnist.ipynb) 5h
 - XGBoost
 - LightGBM
 - **Keras** (High-level deep learning API)
