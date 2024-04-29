@@ -151,4 +151,5 @@ Work in progress:
     - Fine-tuning
 
 **Interviews**
-- AI Engineer, a Startup in Finance & Crypto
+- [AI Engineer](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/Interviews/int1.md), a Startup in Finance & Crypto
+
