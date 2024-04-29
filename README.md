@@ -9,18 +9,33 @@ I've categorized them based on difficulty:
 * <span style="color:red"> Red text</span>: Toughest and for pros
 (color codes are present [here](https://www.notion.so/AI-Roadmap-2024-b06e9b87fe8940f191b68d7100f01eed))
 
-Work in progress:
-1. Updating the pytorch material with notebooks containing code & concepts.(2/20 done)
 
 ---
-**Programming Languages:**
+**Structure:** 
+- [Data Scientist Roadmap2024](#data-scientist-roadmap2024)
+    - [Description](#description)
+    - [List of tools, libraries and concepts](#list-of-tools-libraries-and-concepts)
+      - [**Programming Languages:**](#programming-languages)
+      - [**Frameworks \& Libraries:**](#frameworks--libraries)
+      - [**Cloud Platforms \& Services:**](#cloud-platforms--services)
+      - [**Data Tools \& Libraries:**](#data-tools--libraries)
+      - [**Web Development Frameworks:**](#web-development-frameworks)
+      - [**Machine Learning Concepts:**](#machine-learning-concepts)
+      - [**DevOps \& MLOps Tools:**](#devops--mlops-tools)
+      - [**Data Visualization Tools:**](#data-visualization-tools)
+      - [**Other:**](#other)
+    - [**Interviews**](#interviews)
+
+### List of tools, libraries and concepts 
+---
+#### **Programming Languages:**
 
 - Python
 - R
 
 ---
 
-**Frameworks & Libraries:**
+#### **Frameworks & Libraries:**
 
 - Scikit-learn
 - Numpy
@@ -39,7 +54,7 @@ Work in progress:
 
 ---
 
-**Cloud Platforms & Services:**
+#### **Cloud Platforms & Services:**
 
 - Docker (Containerization platform)
 - Learn any one of the following:
@@ -69,7 +84,7 @@ Work in progress:
 
 ---
 
-**Data Tools & Libraries:**
+#### **Data Tools & Libraries:**
 
 - SQL (including OLAP & OLTP variations)
 - Pandas
@@ -80,7 +95,7 @@ Work in progress:
 
 ---
 
-**Web Development Frameworks:**
+#### **Web Development Frameworks:**
 
 - FastAPI
 - Uvicorn (likely mentioned in conjunction with FastAPI)
@@ -88,7 +103,7 @@ Work in progress:
 
 ---
 
-**Machine Learning Concepts:**
+#### **Machine Learning Concepts:**
 
 - Supervised Learning
     - Regression
@@ -115,7 +130,7 @@ Work in progress:
 
 ---
 
-**DevOps & MLOps Tools:**
+#### **DevOps & MLOps Tools:**
 
 - Airflow (Workflow orchestration tool)
 - MLFlow (Machine learning lifecycle management)
@@ -125,7 +140,7 @@ Work in progress:
 
 ---
 
-**Data Visualization Tools:**
+#### **Data Visualization Tools:**
 
 - Tableau
 - Matplotlib (Python plotting library)
@@ -134,7 +149,7 @@ Work in progress:
 
 ---
 
-**Other:**
+#### **Other:**
 
 - ETL (Extract, Transform, Load) processes
 - Optimisation algorithms (can be broader than just machine learning)
@@ -149,6 +164,9 @@ Work in progress:
     - Prompt engineering
     - RAG
     - Fine-tuning
-
-**Interviews**
+---
+### **Interviews**
 - AI Engineer, a Startup in Finance & Crypto
+
+**Work in progress:**
+1. Updating the pytorch material with notebooks containing code & concepts.(3/20 done)
