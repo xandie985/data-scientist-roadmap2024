@@ -141,8 +141,14 @@ Work in progress:
 - Distributed training
 - Curse of dimensionality
 - Financial modeling
+  - MIT Course: [Mathematics With Applications In Finance](https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/video_galleries/video-lectures/)
+    - The purpose of the class is to expose undergraduate and graduate students to the mathematical concepts and techniques used in the financial industry. Mathematics lectures are mixed with lectures illustrating the corresponding application in the financial industry. 
+
 - LLMs
     - Lang-chain Agents
     - Prompt engineering
     - RAG
     - Fine-tuning
+
+**Interviews**
+- AI Engineer, a Startup in Finance & Crypto
