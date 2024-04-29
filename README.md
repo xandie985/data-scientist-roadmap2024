@@ -24,6 +24,7 @@ I've categorized them based on difficulty:
       - [**DevOps \& MLOps Tools:**](#devops--mlops-tools)
       - [**Data Visualization Tools:**](#data-visualization-tools)
       - [**Other:**](#other)
+    - [**Interviews**](#interviews)
 
 ### List of tools, libraries and concepts 
 ---
@@ -164,7 +165,7 @@ I've categorized them based on difficulty:
     - RAG
     - Fine-tuning
 
-**Interviews**
+### **Interviews**
 - AI Engineer, a Startup in Finance & Crypto
 
 **Work in progress:**
