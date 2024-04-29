@@ -166,7 +166,7 @@ I've categorized them based on difficulty:
     - Fine-tuning
 
 ### **Interviews**
-- AI Engineer, a Startup in Finance & Crypto
+- [AI Engineer](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/Interviews/int1.md), a Startup in Finance & Crypto
 
 **Work in progress:**
 1. Updating the pytorch material with notebooks containing code & concepts.(3/20 done)
