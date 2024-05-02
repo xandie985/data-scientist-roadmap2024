@@ -87,6 +87,7 @@ I've categorized them based on difficulty:
 #### **Data Tools & Libraries:**
 
 - SQL (including OLAP & OLTP variations)
+    - [SQLBOLT](https://sqlbolt.com/), a simple & interactive. [2H]
 - Pandas
 - Elasticsearch
 - **Dask** (Parallel computing library for big data)
