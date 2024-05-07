@@ -45,6 +45,8 @@ I've categorized them based on difficulty:
   - [introduction](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/ch1.introduction.ipynb) 2h
   - [into_production](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/ch2_production.ipynb) 2h
   - [mninst](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/ch3.mnist.ipynb) 5h
+  - [image classification](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/ch4_img_classification.ipynb) 5h
+  - [multi-label classification](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/pytorch/ch5.multi_label_categorization.ipynb) 
 - XGBoost
 - LightGBM
 - **Keras** (High-level deep learning API)
