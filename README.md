@@ -31,6 +31,7 @@ I've categorized them based on difficulty:
 #### **Programming Languages:**
 
 - Python
+    - [GRIND 75](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/python/Grind%2075.ipynb) - Questions and multiple solutions.
 - R
 
 ---
