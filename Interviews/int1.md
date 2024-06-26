@@ -1,54 +1,50 @@
+## AI Engineer Interview (Startup, Finance & Crypto)
 
-## AI Engineer, Startup, Finance & Crypto
-April,2024 
+**April 2024**
 
-### Round 1: Introduction [30min]
-**Questions:**
-It was completely based on my resume and the job description. 
+### Round 1: Introduction (30min)
 
+* Questions focused on resume and job description.
 
-### Round 2: Technical round [60min]
-**Questions:**
-1. **Statistics**
-   - Define random variable?
-   - What do you understand by convergence of series of random variables?
-   - Hypothesis testing & their types?
-   - What errors can you make while hypothesis testing?
-   - Purpose of hypothesis testing?
-2. **Machine Learning**
-   - What is machine learning?
-   -  Stastical implementation of linear regression.
-       -  What are the coeficients of the equation in multivariate linear regression? 
-       -  What do they represent?
-       -  How are the values correlated with to *y*?
-   - What is the term for the sliding window in CNN? local receptor fiels.
-   - Discussion about Classification, Forecasting & Text Generation. 
-   - Define simple decision tree. 
-   - What are random forests? Where have you used it & how?
-   - Difference between Random Forest & Decision Tree.
-     - How are the sub-trees under Random Forest different?
-     - Why do we get better results with Random Forest?
-3. **Neural Networks**
-   -  What are fully convolutional neural networks?
-      -  Explain the working.
-   -  What are dense neural networks?
-      -  How are they connected?
-      -  How are they diferent from fully connected neural networks?
-      -  Explain the working.
-   -  What are Reccurent neural networks?
-      -  Whay are they named so?
-      -  What kind of information do they store?
-      -  What are the benefits & drawbacks of RNN?
-      -  What are better alternatives?
-   -  LSTM & Transformer
-      -  Why LSTM? 
-      -  Why Transformer? What's so special about them?
-      -  Explain Self Attention & its working. 
+### Round 2: Technical (60min)
 
-4. **Portfolio Management**
-   - What are correlated & independent assets?
-   - How will you manage a portfolio what contains 5 correlated assets & 5 independent assets?
-   - What happens if all the assets are correlated? How will you handle them?
-   - What happens if all the assets are independent? How will you handle them?
-   - Explain Asset Allocation & Hedging.
-   - What do you know about portfolio optimization?
+1.  **Statistics:**
+    *   Define random variable.
+    *   What is convergence of series of random variables?
+    *   Hypothesis testing types and errors.
+    *   Purpose of hypothesis testing.
+
+2.  **Machine Learning:**
+    *   Definition of machine learning.
+    *   Statistical implementation of linear regression (coefficients, interpretation, correlation).
+    *   CNN sliding window term (local receptive field).
+    *   Discussion on classification, forecasting, and text generation.
+    *   Decision trees and random forests (definition, use cases, comparison).
+
+3.  **Neural Networks:**
+    *   Fully convolutional neural networks (FCNNs) - definition and working.
+    *   Dense neural networks (DNNs) - definition, connections, difference from FCNNs, working.
+    *   Recurrent neural networks (RNNs) - name, information storage, benefits, drawbacks, alternatives.
+    *   LSTM and Transformer - reasons for use, self-attention mechanism.
+
+4.  **Portfolio Management:**
+    *   Correlated vs. independent assets.
+    *   Managing portfolios with both types of assets.
+    *   Handling scenarios with all correlated or all independent assets.
+    *   Asset allocation and hedging.
+    *   Portfolio optimization.
+
+### Round 3: Logical and Coding (45min)
+
+1.  **Logic and mathematical Puzzles** 
+2.  **Coding:**
+    *   Detecting and fixing syntax errors in given code.
+    *   Implementing sorting algorithms.
+
+### Round 4: Managerial and Technical (50min)
+
+1.  **Sentiment Indicator Creation:** Design a sentiment indicator using a dataset of 1000+ rows of financial news mentioning Bitcoin, Ethereum, etc.
+2.  **Performance Metrics:** Choose the best metric to deploy a sentiment model for predicting the market's next hour movement.
+3.  **Model Performance Tracking:** Identify suitable metrics for tracking the model's performance in this scenario.
+4.  **Production Challenges:** Discuss challenges of putting the sentiment model into production.
+5.  **Scalability:** Propose changes to handle 2000 requests every 5 minutes.
