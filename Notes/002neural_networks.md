@@ -149,7 +149,7 @@ Lets talk about them one by one.
   - They combine the forget and input gates into a single update gate.
   - GRUs are generally faster to train and have fewer parameters than LSTMs, but they may not be as effective in capturing complex dependencies.
 - **LSTM**
-  
+  - <video src='[m2-res_720p.mp4](https://packaged-media.redd.it/afzlbpt2ncg81/pb/m2-res_720p.mp4?m=DASHPlaylist.mpd&v=1&e=1722204000&s=961305c3c0633ec1c3def4dca2681f828101cc0e#t=0)' width=180/>
   -  <video src="m2-res_720p.mp4" controls title="LSTM"></video>
 
   - LSTMs are a more sophisticated type of RNN with additional gates (input, forget, and output gates) to control the flow of information through the network.
