@@ -90,11 +90,11 @@ Resources:
 
 #### Detailed Steps
 1. **Initialization**:
-   - Start with random or zero values for the parameters (e.g., \( b3 = 0 \)).
+   - Start with random or zero values for the parameters (parameters refers to the Weights & baises).
 
 2. **Forward Pass**:
    - Compute the predicted values by passing the input data through the neural network.
-   - Calculate the loss function (e.g., sum of the squared residuals).
+   - The final output is compared to the desired output (ground truth) to calculate the loss function.
 
 3. **Backward Pass (Chain Rule Application)**:
    - Calculate the derivative of the loss function with respect to the predicted values.
@@ -125,11 +125,12 @@ By understanding and applying backpropagation, one can efficiently train neural 
 
 Resources:
 - [Backpropagation via StatQuest](https://youtu.be/IN2XmBhILt4?si=_Zp0Q7ka8tYxWIJ5)
-- [Backpropagation in depth part-1](https://youtu.be/iyn2zdALii8?si=EOEBC6sXBOFBvJCK)
-- [Backpropagation in depth part-2](https://youtu.be/GKZoOHXGcLo?si=7koRo3Ks2rOzUvb9)
+- [Visualizing BP](https://hmkcode.com/ai/backpropagation-step-by-step/)
+- [Backpropagation 3B1B](https://www.youtube.com/watch?v=Ilg3gGewQ5U)
 
 ---
-### **Learning Rate (α): The Essential Hyperparameter**
+
+### Learning Rate (α)
 
 * **Definition:** The learning rate is a scalar value, usually small and positive (e.g., 0.01, 0.001), that controls the step size in the parameter update during training. It determines how much the weights and biases are adjusted based on the calculated gradient of the loss function.
 
@@ -181,27 +182,164 @@ Resources:
     * **Alternatives:** Techniques such as residual connections (e.g., ResNet), layer normalization, and the use of activation functions like ReLU (Rectified Linear Unit) can also help alleviate the vanishing gradient problem and potentially allow for higher learning rates.
 
 
----
-
-### Adaptive learning rate algorithms 
+#### Adaptive learning rate algorithms 
 They have evolved over time to address the challenges of training complex models, especially in deep learning. Here's a list of these algorithms from the basic to the more advanced, along with a brief description of each:
 
 Here’s a tabular exhaustive comparison of various optimization algorithms used in machine learning, categorized into Basic, Intermediate, and Advanced levels:
+Absolutely! Here's the table split into three parts with an added "More Information" column:
 
-| **Category**      | **Algorithm**                | **Description**                                                                                                                                                   | **Advantages**                                                                                                    | **Disadvantages**                                                                                                      |
-|-|-|-|-|-|
-| **Basic**         | **SGD (Stochastic Gradient Descent)** | Updates parameters for each training example.                                                                                                                      | Simple and easy to implement.                                                                                      | High variance in updates can lead to slow convergence.                                                                 |
-|                   | **Mini-Batch Gradient Descent** | Updates parameters for a mini-batch of training examples.                                                                                                          | Reduces variance and can utilize vectorized operations for efficiency.                                             | Requires selection of appropriate batch size.                                                                          |
-| **Intermediate**  | **Momentum**                 | Accelerates SGD by considering the previous update’s direction and velocity.                                                                                       | Helps escape local minima and smoothens updates.                                                                   | Introduces an additional hyperparameter (momentum term).                                                               |
-|                   | **Nesterov Accelerated Gradient** | Similar to Momentum but performs a lookahead before updating parameters.                                                                                           | More accurate and often faster convergence than standard Momentum.                                                 | More complex implementation and introduces additional computational overhead.                                           |
-| **Advanced**      | **Adagrad**                  | Adaptively adjusts learning rates for each parameter, performing larger updates for infrequent features and smaller updates for frequent features.                  | No need to manually tune the learning rate and handles sparse data well.                                           | Learning rate can become very small over time, leading to premature convergence.                                        |
-|                   | **Adadelta**                 | An extension of Adagrad that seeks to reduce Adagrad’s aggressive, monotonically decreasing learning rate problem by limiting the accumulated past gradients.       | Robust to large gradients and no need to set a learning rate.                                                      | Can be computationally expensive and still requires careful hyperparameter tuning.                                      |
-|                   | **RMSprop**                  | Modifies Adagrad to resolve its diminishing learning rate problem by using a moving average of squared gradients to normalize the gradient.                         | Works well in practice and is suitable for non-stationary objectives.                                              | Requires careful tuning of hyperparameters.                                                                            |
-|                   | **Adam (Adaptive Moment Estimation)** | Combines the advantages of both RMSprop and Momentum by maintaining a moving average of both the gradients and their squares.                                       | Well-suited for large datasets and high-dimensional parameter spaces; less sensitive to hyperparameter tuning.     | Can be computationally expensive and sometimes converge to suboptimal solutions.                                        |
-|                   | **Adamax**                   | A variant of Adam based on the infinity norm, which has better performance on certain tasks.                                                                       | Handles large gradients and outliers better than Adam.                                                             | Similar computational overhead as Adam and requires hyperparameter tuning.                                              |
-|                   | **Nadam**                    | Combines Adam with Nesterov Accelerated Gradient for improved performance.                                                                                         | Often leads to faster convergence and better performance than Adam.                                                | Increased complexity and computational overhead due to Nesterov's lookahead step.                                       |
+**Basic Learning Rate Algorithms**
 
-### Summary:
+| **Algorithm**                | **Description**                                                                                                                                                   | **Advantages**                                                                                                    | **Disadvantages**                                                                                                      | **More Information** |
+|:------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|:----------------------|
+| **SGD**                       | Updates parameters for each training example. <br> **LR**: *Fixed throughout the training process.*                                                                                                 | Simple and easy to implement,                                                                                     | High variance in updates can lead to slow convergence.                                                                 | Introduces randomness into the optimization process. Noisy updates, can oscillate around the optimum. |
+| **Mini-Batch GD**            | Updates parameters for a mini-batch of training examples. <br> **LR**: *Fixed, but can be adjusted dynamically.*                                                                                                 | Reduces variance and can utilize vectorized operations for efficiency.                                             | Requires selection of appropriate batch size.                                                                          | Less noisy updates than SGD, more computationally efficient. |
+
+**Intermediate Learning Rate Algorithms**
+
+| **Algorithm**                | **Description**                                                                                                                                                   | **Advantages**                                                                                                    | **Disadvantages**                                                                                                      | **More Information**                                      |
+|:------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|
+| **Momentum**                 | Accelerates SGD by considering the previous update’s direction and velocity. <br> **Parameters**:Learning rate (α), Momentum term (γ).                                                                                       | Helps escape local minima and smoothens updates.                                                                   | Introduces an additional hyperparameter (momentum term).                                                               | Builds inertia to speed up convergence in relevant directions. |
+| **NAG**                      | Similar to Momentum but performs a lookahead before updating parameters. <br> **Parameters**: Learning rate (α), Momentum term (γ).                                                                                         | More accurate and often faster convergence than standard Momentum.                                                 | More complex implementation and introduces additional computational overhead.                                           | Variant of momentum with improved responsiveness to the gradient. |
+
+**Advanced Learning Rate Algorithms**
+
+| **Algorithm**                | **Description**                                                                                                                                                   | **Advantages**                                                                                                    | **Disadvantages**                                                                                                      | **More Information**                                                                                      |
+|:------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|
+| **Adagrad**                  | Adaptively adjusts learning rates for each parameter, performing larger updates for infrequent features and smaller updates for frequent features.<br> **Parameters**:  Learning rate (α), Epsilon (ε).                 | No need to manually tune the learning rate and handles sparse data well.                                           | Learning rate can become very small over time, leading to premature convergence.                                        |  Per-parameter learning rates that decay as training progresses. |
+| **Adadelta**                 | An extension of Adagrad that seeks to reduce Adagrad’s aggressive, monotonically decreasing learning rate problem by limiting the accumulated past gradients.  <br>**Parameters**: Decay rate (ρ), Epsilon (ε).     | Robust to large gradients and no need to set a learning rate.                                                      | Can be computationally expensive and still requires careful hyperparameter tuning.                                      | Adapts learning rates based on a window of recent gradients. |
+| **RMSprop**                  | Modifies Adagrad to resolve its diminishing learning rate problem by using a moving average of squared gradients to normalize the gradient.  <br> **Parameters**:  Learning rate (α), Decay rate (γ), Epsilon (ε)                     | Works well in practice and is suitable for non-stationary objectives.                                              | Requires careful tuning of hyperparameters.                                                                            |  Adapts learning rate for each parameter based on recent magnitudes of gradients. |
+| **Adam**                      | Combines the advantages of both RMSprop and Momentum by maintaining a moving average of both the gradients and their squares.  <br> **Parameters**:  Learning rate (α), Beta1 (β1), Beta2 (β2), Epsilon (ε).                                     | Well-suited for large datasets and high-dimensional parameter spaces; less sensitive to hyperparameter tuning.     | Can be computationally expensive and sometimes converge to suboptimal solutions.                                        | Combines adaptive learning rates with momentum.              |
+| **Adamax**                   | A variant of Adam based on the infinity norm, which has better performance on certain tasks.   <br> **Parameters**: Learning rate (α), Beta1 (β1), Beta2 (β2), Epsilon (ε).                                                                   | Handles large gradients and outliers better than Adam.                                                             | Similar computational overhead as Adam and requires hyperparameter tuning.                                              | A variant of Adam based on the infinity norm.                |
+| **Nadam**                    | Combines Adam with Nesterov Accelerated Gradient for improved performance. <br> **Parameters**:Learning rate (α), Beta1 (β1), Beta2 (β2), Epsilon (ε).                                                                                         | Often leads to faster convergence and better performance than Adam.                                                | Increased complexity and computational overhead due to Nesterov's lookahead step.                                        |  Combines adaptive learning rates with Nesterov momentum. |
+                                      
+
+#### Summary:
 - **Basic Algorithms** like SGD and Mini-Batch Gradient Descent are simple and easy to implement but can suffer from slow convergence and high variance.
 - **Intermediate Algorithms** like Momentum and Nesterov Accelerated Gradient introduce the concept of velocity to smooth updates and can escape local minima more effectively.
 - **Advanced Algorithms** like Adagrad, Adadelta, RMSprop, Adam, Adamax, and Nadam adapt the learning rates dynamically based on past gradients, often leading to faster and more reliable convergence, though they come with increased computational complexity and the need for careful hyperparameter tuning.
+
+---
+### Activation Functions
+Activation functions are crucial components in neural networks that determine the output of a neuron based on its input. They introduce non-linearity into the model, enabling the network to learn complex patterns. Here’s an overview of various activation functions, their properties, characteristics, and when to use each.
+
+**1. Linear Activation Function**
+
+* **Description:**
+    - Mathematical form: `f(x) = x`
+    - Straight line relationship between input and output.
+* **Use Cases:**
+    - Output layer for regression tasks (predicting continuous values).
+* **Limitations:**
+    - No non-linearity: Cannot learn complex relationships.
+    - Multiple linear layers collapse into one: Deep networks become pointless.
+* **Interview Tips:**
+    - Mention it's the simplest activation function.
+    - Highlight its use in regression, but NOT in hidden layers.
+    - Be ready to explain why non-linearity is crucial for complex models.
+
+**2. Sigmoid Activation Function**
+  ![Alt text](image.png)
+* **Description:**
+    - Mathematical form: `f(x) = 1 / (1 + exp(-x))`
+    - S-shaped curve, squashes values between 0 and 1.
+* **Use Cases:**
+    - Output layer for binary classification (probability output).
+    - Historically used in hidden layers, but less common now.
+* **Limitations:**
+    - Vanishing gradients: Becomes problematic in deep networks.
+    - Not zero-centered: Can slow down learning.
+* **Interview Tips:**
+    - Connect it to probability interpretation in binary classification.
+    - Explain the vanishing gradient issue and its impact.
+    - Be prepared to discuss why other functions are preferred in hidden layers.
+
+**3. Tanh (Hyperbolic Tangent) Activation Function**
+  ![Alt text](image-1.png)
+* **Description:**
+    - Mathematical form: `f(x) = (exp(x) - exp(-x)) / (exp(x) + exp(-x))`
+    - S-shaped, zero-centered (values between -1 and 1).
+* **Use Cases:**
+    - Hidden layers in classification tasks.
+    - Output layer for binary classification with -1/+1 targets.
+* **Limitations:**
+    - Still suffers from (less severe) vanishing gradients.
+* **Interview Tips:**
+    - Highlight the zero-centered advantage over sigmoid.
+    - Discuss how it might be chosen over ReLU in certain cases.
+    - Mention its suitability for specialized binary classification.
+
+**4. ReLU (Rectified Linear Unit) Activation Function**
+  ![Alt text](image-2.png)
+* **Description:**
+    - Mathematical form: `f(x) = max(0, x)`
+    - Outputs 0 for negative inputs, the input itself for positive.
+* **Use Cases:**
+    - Dominant choice for hidden layers in deep networks.
+    - Can be used in output for regression with non-negative targets.
+* **Limitations:**
+    - Dying ReLU: Neurons can become inactive due to zero gradients.
+* **Interview Tips:**
+    - Emphasize its popularity and computational efficiency.
+    - Explain how it addresses the vanishing gradient problem.
+    - Discuss the dying ReLU problem and how it's mitigated (e.g., Leaky ReLU).
+
+**5. Leaky ReLU Activation Function**
+  ![Alt text](image-3.png)
+* **Description:**
+    - Mathematical form: `f(x) = max(0.01x, x)` (example leak coefficient)
+    - Small slope for negative inputs, avoids the "dying ReLU" problem.
+* **Use Cases:**
+    - Hidden layers, particularly in deeper networks.
+* **Limitations:**
+    - The optimal leak coefficient is a hyperparameter to tune.
+* **Interview Tips:**
+    - Present it as a solution to the dying ReLU problem.
+    - Be ready to explain how the leak coefficient affects behavior.
+    - If time allows, mention other ReLU variants (e.g., Parametric ReLU).
+
+**6. Softmax Activation Function**
+  ![Alt text](image-4.png)
+* **Description:**
+    - Mathematical form: `f(x_i) = exp(x_i) / sum(exp(x_j))` 
+    - Converts logits into probabilities for multiple classes.
+* **Use Cases:**
+    - Output layer of multi-class classification tasks.
+* **Limitations:**
+    - Can suffer from numerical instability with large input values.
+* **Interview Tips:**
+    - Strongly connect it to multi-class classification.
+    - Explain how it normalizes outputs into a probability distribution.
+    - Briefly mention the potential issue of large inputs and how it's handled (e.g., normalization techniques).
+
+
+
+#### Comparison of Activation Functions
+
+| Activation Function | Equation                  | Range         | Non-linearity | Use Case                          | Issues                          |
+|---------------------|---------------------------|---------------|---------------|-----------------------------------|---------------------------------|
+| Linear              | $$ f(x) = x $$           | $$(-∞, ∞)$$   | No            | Regression output layer           | No complexity, not useful in hidden layers |
+| Sigmoid             | $$ f(x) = \frac{1}{1 + e^{-x}} $$ | $$(0, 1)$$    | Yes           | Binary classification             | Vanishing gradient problem      |
+| Tanh                | $$ f(x) = \tanh(x) $$    | $$(-1, 1)$$   | Yes           | Hidden layers, binary classification | Vanishing gradient problem      |
+| ReLU                | $$ f(x) = \max(0, x) $$  | $$[0, ∞)$$    | Yes           | Hidden layers in deep networks    | Dying ReLU problem              |
+| Leaky ReLU          | $$ f(x) = \begin{cases} x & x > 0 \\ \alpha x & x \leq 0 \end{cases} $$ | $$(-∞, ∞)$$   | Yes           | Hidden layers in deep networks    | Still may suffer from dying ReLU |
+| Softmax             | $$ f(x_i) = \frac{e^{x_i}}{\sum e^{x_j}} $$ | $$(0, 1)$$    | Yes           | Multi-class classification        | Sensitive to outliers           |
+
+
+#### When to Use Which Activation Function
+
+- **Linear**: Use in the output layer for regression tasks.
+  
+- **Sigmoid**: Ideal for binary classification problems where output needs to be interpreted as a probability.
+
+- **Tanh**: Preferable in hidden layers for binary classification due to its zero-centered output.
+
+- **ReLU**: The default choice for hidden layers in deep networks due to its efficiency and ability to mitigate vanishing gradients.
+
+- **Leaky ReLU**: Use when you suspect that ReLU might lead to dead neurons in deeper networks.
+
+- **Softmax**: Use in the output layer for multi-class classification tasks to interpret outputs as probabilities.
+
+
+Resources:
+- [Visualizing Activation Functions](https://dashee87.github.io/deep%20learning/visualising-activation-functions-in-neural-networks/)

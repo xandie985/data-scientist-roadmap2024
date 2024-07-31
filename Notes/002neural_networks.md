@@ -144,34 +144,236 @@ LSTM and GRU, are designed to address the vanishing gradient problem that tradit
 
 
 Lets talk about them one by one.
-- **GRU**
+#### GRU
   - GRUs are a simplified version of LSTMs with fewer gates.
   - They combine the forget and input gates into a single update gate.
   - GRUs are generally faster to train and have fewer parameters than LSTMs, but they may not be as effective in capturing complex dependencies.
-- **LSTM**
+
+#### LSTM
+![Alt text](image-7.png)
   - [Animation link](https://packaged-media.redd.it/afzlbpt2ncg81/pb/m2-res_720p.mp4?m=DASHPlaylist.mpd&v=1&e=1722204000&s=961305c3c0633ec1c3def4dca2681f828101cc0e#t=0)
+  Certainly! Let's delve deeper into the Long Short-Term Memory (LSTM) networks, focusing on their architecture, advantages, disadvantages, and practical applications. This extended version will be suitable for interviews, exams, and in-depth study.
 
-  - LSTMs are a more sophisticated type of RNN with additional gates (input, forget, and output gates) to control the flow of information through the network.
-  - The forget gate determines what information to discard from the previous hidden state.
-  - The input gate decides what new information to store in the cell state.
-  - The output gate determines what information to output from the cell state.
+**LSTM Architecture**
 
-### 4. Transformers
-**Attention Is All You Need:** Transformers replaced recurrence with the self-attention mechanism, enabling parallel processing of input elements and capturing long-range dependencies more effectively.
+- **Main Idea**: LSTMs are designed to address the fundamental challenges of traditional Recurrent Neural Networks (RNNs) by introducing a sophisticated gating mechanism that allows for the selective retention or discarding of information over long sequences. This is achieved through a separate cell state (long-term memory) and a hidden state (short-term memory).
 
-**Rise of Pre-trained Models:** Large-scale pre-trained transformer models like BERT and GPT emerged, leveraging massive amounts of text data to learn general language representations. These models could be fine-tuned for specific tasks, achieving state-of-the-art performance across various NLP benchmarks.
+**Components**
 
-**Multimodal Transformers:** Transformers have expanded beyond text, with applications in image processing (Vision Transformers), audio processing, and even protein folding (AlphaFold). They have demonstrated the potential to unify different modalities within a single architecture.
+* **Cell State (c<sub>t</sub>):**
+  - Acts as a conveyor belt that carries critical information through the sequence with minimal modification.
+  - This continuous path enables the LSTM to maintain long-term dependencies without suffering from the vanishing gradient problem.
 
-**Steps:**
-1. **Input Representation**
-   - Tokenization: Input text is split into words/subwords/characters (tokens). Each token is assigned a unique numerical ID.
-   - Embedding: Token IDs are converted into dense vector representations of fixed size (embeddings) that capture semantic meaning.
+* **Hidden State (h<sub>t</sub>):**
+  - Represents the network's short-term memory or the current output.
+  - Directly influenced by the weights, biases, and the gating mechanisms.
 
-2. **Positional Encoding:** Information about the position of each token in the sequence is added to the embeddings, as transformers don't inherently process word order (as RNNs do).
+**Gating Mechanisms**
+The flow of information into and out of the cell state is meticulously controlled by three gates:
 
-3. **Transfomer Architecture:** Has Encoder and Decoder. 
-   **Encoder**
+1. **Forget Gate (f<sub>t</sub>):**
+   - Determines what information to discard from the cell state.
+   - Calculation: 
+     \[
+     f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)
+     \]
+   - The sigmoid function outputs values between 0 (complete forget) and 1 (complete retain).
+
+2. **Input Gate (i<sub>t</sub>):**
+   - Decides what new information to store in the cell state.
+   - Calculation:
+     \[
+     i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)
+     \]
+   - Candidate cell state (c̃<sub>t</sub>):
+     \[
+     \tilde{c}_t = \tanh(W_c \cdot [h_{t-1}, x_t] + b_c)
+     \]
+   - Cell state update:
+     \[
+     c_t = f_t \cdot c_{t-1} + i_t \cdot \tilde{c}_t
+     \]
+
+3. **Output Gate (o<sub>t</sub>):**
+   - Determines what parts of the cell state to output.
+   - Calculation:
+     \[
+     o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)
+     \]
+   - Hidden state update:
+     \[
+     h_t = o_t \cdot \tanh(c_t)
+     \]
+
+**Activation Functions**
+* **Sigmoid (σ):**
+  - Squashes values between 0 and 1, ideal for gating mechanisms where the decision to pass or block information is binary.
+  - Example: `σ(10) ≈ 0.99995` (almost fully open gate), `σ(-5) ≈ 0.01` (almost closed gate)
+
+* **Tanh:**
+  - Squashes values between -1 and 1, often used for the candidate cell state to provide a wide range of potential updates.
+
+**LSTM Advantages & Disadvantages**
+
+**Advantages**
+* **Handles Long-Term Dependencies:**
+  - The cell state mechanism effectively preserves information over long sequences, solving the vanishing/exploding gradient problem.
+* **Flexible Memory:**
+  - Can selectively remember and forget information, making it suitable for various tasks such as language modeling, speech recognition, and time series forecasting.
+* **State-of-the-Art Performance:**
+  - Has been the backbone of many successful Natural Language Processing (NLP) applications and continues to be a benchmark in sequence modeling.
+
+**Disadvantages**
+* **Complexity:**
+  - The architecture is more complex than traditional RNNs, leading to slower training and potential overfitting.
+* **Resource-Intensive:**
+  - Requires more computational resources than simpler models, which can be a constraint for real-time applications or on resource-limited devices.
+
+**Practical Applications**
+* **Language Modeling:**
+  - Predicting the next word in a sentence or generating coherent text.
+* **Speech Recognition:**
+  - Transcribing spoken words into text.
+* **Time Series Forecasting:**
+  - Predicting future values based on historical data.
+* **Machine Translation:**
+  - Translating text from one language to another while maintaining context.
+
+**Interview/Exam Tips**
+* **Understanding Gates:**
+  - Be prepared to explain the role of each gate and their calculations in detail.
+* **LSTM vs. RNN/GRU:**
+  - Know the key differences and trade-offs between LSTMs, GRUs, and vanilla RNNs.
+* **Applications:**
+  - Be familiar with real-world applications of LSTMs in NLP, time series analysis, etc.
+* **Mathematical Details:**
+  - Understand the equations for each gate and the cell state update.
+* **Coding:**
+  - Be able to implement a basic LSTM cell in Python or your preferred language.
+
+
+Resources:
+- [LSTM explained step-by-step](https://www.youtube.com/watch?v=YCzL96nL7j0&list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1&index=16)
+- [colah's blog](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+- [LSTM visualization](https://lstmvis.vizhub.ai/)
+- [LSTM Medium Article](https://blog.mlreview.com/understanding-lstm-and-its-diagrams-37e2f46f1714)
+
+---
+### 5. Transformers
+
+#### Transformer Architecture
+
+**Core Concepts:**
+
+* **Parallel Processing:** Unlike recurrent neural networks (RNNs take data sequentially so they cannot utilize the GPUs efficiently), Transformers process input sequences in parallel, making them computationally efficient.
+* **Attention Mechanism:** This is the heart of Transformers. It allows the model to weigh the importance of different words in relation to each other, dynamically during processing.
+* **Positional Encoding:** Since the model processes words simultaneously, positional information is explicitly added to the input to preserve word order.
+
+
+**Transfomer Architecture:** Has Encoder and Decoder. The encoder takes in our input and outputs a matrix representation of that input. The decoder takes in that encoded representation and iteratively generates an output. However, both the encoder and the decoder are actually a stack with multiple layers (same number for each). All encoders present the same structure, and the input gets into each of them and is passed to the next one. All decoders present the same structure as well and get the input from the last encoder and the previous decoder.
+![Alt text](image-8.png)
+The original architecture consisted of 6 encoders and 6 decoders, but we can replicate as many layers as we want. So let’s assume N layers of each.
+
+#### Encoder: 
+   Unlike earlier models that processed tokens independently, the Transformer encoder captures the context of each token with respect to the entire sequence.
+   <img src="image-9.png" width="250">
+
+
+   **1. Input Embeddings (Encoder Only)**
+   <img src="image-10.png" width="600">
+   * **Tokens:** The input text is divided into smaller units called tokens (words or subwords).
+   * **Embedding Layer:**  Each token is converted into a numerical vector (embedding) that represents its meaning in a high-dimensional space.
+   * **Encoder Input:** The bottom-most encoder receives these word embeddings. Other encoders receive the output from the encoder below.
+
+   **2. Positional Encoding (Encoder and Decoder)**
+   <img src="image-11.png" width="400">
+
+   * **Problem:** Transformers lack inherent word order information.
+   * **Solution:** Positional encodings are added to the input embeddings.
+   * **How:** Sine and cosine functions with different frequencies are used to create a unique vector for each position in the sequence.
+
+   **3. Encoder Layers (Repeated Stack)**
+   <img src="image-12.png" width="500">
+
+   * **Purpose:**  Transform the input sequence into a meaningful representation.
+   * **Components:**
+      * **Multi-Head Self-Attention:** Captures relationships between words in the input sequence.
+      * **Feedforward Network:** Applies non-linear transformations to refine the representation.
+      * **Residual Connections:** Add the original input to the output to prevent vanishing gradients.
+      * **Layer Normalization:** Normalizes the output for stability and faster training.
+
+   **3.1 Multi-Head Self-Attention**
+    <img src="image-13.png" width="500">
+   * **Goal:**  Allows the model to weigh the importance of different words in the sequence when processing a specific word.
+   * **Steps:**
+      1. **Query, Key, Value Matrices:**  Each input embedding is transformed into three separate vectors: query, key, and value.
+      2. **Attention Scores:** Calculated by comparing the query vector of a word with the key vectors of all other words (using dot product).
+      3. **Scaling:** Attention scores are scaled down to prevent unstable gradients.
+      4. **Softmax:** Converts the scaled scores into probabilities, representing the attention weights for each word.
+      5. **Weighted Sum:** The value vectors are multiplied by the attention weights and summed up to get the attention output.
+   * **Multi-Head:**  This process is repeated multiple times with different linear transformations to capture diverse relationships between words.
+
+   **3.2 Normalization and Residual Connections**
+       <img src="image-14.png" width="400">
+   * **Normalization:** Layer normalization is applied after the multi-head attention mechanism.
+   * **Residual Connection:** The original input embedding is added to the normalized output.
+
+   **3.3 Feedforward Network**
+       <img src="image-15.png" width="400">
+   * **Structure:** Two linear layers with a ReLU activation function in between.
+   * **Purpose:** Further refines the representation learned by the self-attention layer.
+   * **Normalization and Residual Connection:**  Applied again after the feedforward network.
+  
+   **STEP 4 - Output of the Encoder**
+   - The final encoder layer produces a set of vectors, one for each input token.
+   - These vectors are enriched with contextual information about the entire input sequence.
+   - They serve as input to the decoder, guiding its attention towards relevant parts of the input.
+Absolutely! Let's condense and refine those steps into concise study notes for the Transformer decoder:
+
+#### Decoder
+<img src="image-16.png" width="250">
+
+**1. Output Embeddings:**
+
+* **Input:** Starts with a special "start" token.
+* **Embedding Layer:** Converts each token (start token and previously generated tokens) into a numerical vector.
+
+**2. Positional Encoding:**
+
+* **Adds Positional Information:**  Similar to the encoder, positional encodings are added to the input embeddings.
+* These positional embeddings are then channeled into the first multi-head attention layer of the decoder, where the attention scores specific to the decoder’s input are meticulously computed.
+
+**3. Decoder Layers (Repeated Stack)**
+
+* **Purpose:**  Generate the output sequence token by token. It has 3 sub-components
+* **Components:**
+    * **Masked Self-Attention:**  Focuses on the current and previous tokens, preventing the model from peeking at future tokens.
+     <img src="image-17.png" width="450">
+    * **Encoder-Decoder Multi-Head Attention or Cross Attention:**  Incorporates information from the encoder's context vectors, aligning the decoder's focus with relevant parts of the input sequence.
+      <img src="image-18.png" width="350">
+    * **Feedforward Network:** Further refines the representation. Similar to the encoder, each decoder layer includes a fully connected feed-forward network, applied to each position separately and identically.
+   
+   **Residual Connections and Layer Normalization:** Applied after each sub-layer for stability and training efficiency.
+
+**4. Linear Classifier and Softmax:**
+<img src="image-19.png" width="350">
+* **Linear Layer:** Produces logits (raw scores) for each word in the vocabulary.
+* **Softmax:**  Converts the logits into probabilities, selecting the most likely next token.
+
+**Key Points:**
+
+* **Autoregressive Decoding:** The decoder generates the output sequence step by step, using its previous predictions as additional input.
+* **Masked Self-Attention:** Prevents the decoder from cheating by looking at future tokens.
+* **Encoder-Decoder Attention:**  Allows the decoder to focus on the most relevant parts of the input.
+
+**Interview/Exam Tips:**
+
+* **Autoregressive Nature:** Be able to explain the step-by-step generation process of the decoder.
+* **Masking:** Understand the importance of the masked self-attention mechanism in preventing information leakage.
+* **Attention in Decoder:** Be able to differentiate between the two attention mechanisms in the decoder (masked self-attention vs. encoder-decoder attention) and their roles.
+* **Token Generation:** Explain how the linear layer and softmax function are used to produce the final output sequence.
+
+---
    - **Multi-Head Self-Attention**: 
      - **Self-Attention Calculation**: Each token attends to every other token in the sequence to weigh their importance.
        - **Query, Key, Value Vectors**: For each token, three vectors (query, key, and value) are computed using learned weight matrices.
@@ -184,8 +386,69 @@ Lets talk about them one by one.
 
    - **Add & Norm**: Residual connections and layer normalization are applied after both the self-attention and feed-forward layers to stabilize and improve the training process.
 
-    **Decoder**
+    **Decoder**: 
       - Similar to the encoder but with an additional layer of multi-head attention over the encoder’s output to incorporate the encoded input context into the generation process.
+
+
+**Word Embedding and Tokenization**
+
+* **Word Embeddings:**  
+    - These are dense vector representations of words that capture semantic relationships.
+    - Methods: Word2Vec, GloVe, FastText, or learned directly by the Transformer.
+    - Subword tokenization (e.g., Byte Pair Encoding) is often used to handle rare words and out-of-vocabulary tokens.
+* **Tokenization:**
+    - The process of breaking down text into smaller units (words, subwords, or characters).
+    - This is crucial for feeding input into the Transformer.
+
+**Self-Attention Mechanism**
+
+* **Purpose:** The self-attention mechanism lets the Transformer model focus on different parts of the input sequence when generating a specific part of the output.
+* **Steps:**
+    1. **Query, Key, Value Matrices:** Each word is transformed into three vectors: query, key, and value.
+    2. **Attention Scores:** The similarity between the query vector of a word and the key vectors of all other words is calculated (usually using dot product).
+    3. **Scaling:** Attention scores are scaled down to avoid large values that could lead to unstable gradients.
+    4. **Softmax:**  A softmax function converts the scaled scores into a probability distribution, where each word is assigned a weight indicating its importance.
+    5. **Weighted Sum:** The value vectors of all words are multiplied by their corresponding weights and summed up to get the attention output for that word.
+
+* **Multi-Head Attention:** Multiple self-attention layers are stacked in parallel to capture different aspects of the input sequence, improving the model's expressive power.
+
+**Positional Encoding**
+
+* **Necessity:** Since Transformers don't have inherent positional awareness, positional encoding adds information about the position of each word in the sequence.
+* **Implementation:**  Typically, sinusoidal functions (sine and cosine) with different frequencies are used to encode position. This provides a continuous and smooth representation of position.
+
+**Encoder-Decoder Architecture**
+
+* **Encoder:** 
+    - Takes the input sequence and processes it through multiple layers of self-attention and feedforward networks.
+    - The final output of the encoder is a set of context vectors that represent the encoded information of the input sequence.
+
+* **Decoder:** 
+    - Takes the context vectors from the encoder and generates the output sequence token by token.
+    - It uses self-attention to focus on the relevant parts of the input and previously generated output.
+    - It also uses encoder-decoder attention to attend to the context vectors from the encoder.
+
+**Residual Connections and Layer Normalization**
+
+* **Residual Connections:** Add the original input to the output of each layer. This helps mitigate the vanishing gradient problem and allows for deeper networks.
+* **Layer Normalization:**  Normalizes the outputs of each layer to stabilize training and speed up convergence.
+
+**Additional Considerations**
+
+* **Variations:** Many variations of the Transformer architecture exist, such as the BERT (Bidirectional Encoder Representations from Transformers) model, which is widely used for natural language understanding tasks.
+* **Training:** Transformers are often pre-trained on massive amounts of text data using unsupervised learning and then fine-tuned for specific tasks.
+
+**Interview/Exam Tips**
+
+* **Deep Understanding:** Be prepared to explain the attention mechanism and its role in capturing dependencies in detail.
+* **Strengths and Weaknesses:** Understand the advantages (parallel processing, handling long-term dependencies) and limitations (computational cost for long sequences) of Transformers.
+* **Applications:** Know the wide range of applications (translation, text generation, sentiment analysis, etc.) and be able to provide examples.
+* **Variations:** Be aware of major variations of the Transformer architecture and their use cases.
+
+
+---
+
+
 
 
 4. **Output Generation**
@@ -194,16 +457,7 @@ Lets talk about them one by one.
 1. **Training**
 - **Loss Function**: The model is trained to minimize the difference between the predicted output and the actual target output using a loss function like cross-entropy loss.
 - **Optimization**: Parameters are updated using an optimization algorithm like Adam to minimize the loss.
-
-#### Summary of Key Steps:
-1. **Input Representation**: Tokenization and Embedding
-2. **Positional Encoding**: Adding positional information
-3. **Encoder**:
-   - Multi-Head Self-Attention
-   - Feed-Forward Neural Network
-   - Add & Norm
-4. **Decoder** (if applicable): Generating output sequence
-5. **Training**: Minimizing loss to improve predictions
+  
 ---
 ### BERT
 

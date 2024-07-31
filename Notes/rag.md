@@ -1,3 +1,33 @@
+**Document Parsing:**
+
+**Parsing is Critical:**
+The importance of parsing in the context of Retrieval Augmented Generation (RAG) systems cannot be overstated. Effective parsing is the foundation upon which all subsequent AI operations are built. Without accurate extraction of information from documents, even the most advanced AI strategies will fail.
+
+**Diverse Parsing Strategies:**
+There is no one-size-fits-all solution for parsing. Various tools and techniques, such as PDFMiner, Tesseract, Unstructured, LlamaParse, offer different approaches to parsing documents. Each has its strengths and weaknesses, and the choice of parser can significantly impact the performance of the RAG system.
+
+**Quality of Parsing Impacts Performance:**
+The quality of parsing directly influences the performance of language models. Poorly parsed data leads to inaccurate or incomplete information being fed into the model, which can result in incorrect outputs. High-quality parsing ensures that the language model receives clean, structured data, enabling it to provide more accurate responses.
+
+**Testing and Evaluation:**
+Choosing the right parsing strategy requires extensive testing and evaluation. This involves passing documents through multiple parsers, observing the outputs, and conducting end-to-end tests where the parsed data is fed into the RAG system and evaluated against predefined questions and answers. Human evaluation remains crucial, although automation tools can assist in speeding up the process.
+
+**Document-Specific Challenges:**
+The nature of the documents being parsed can pose specific challenges. Different document types (e.g., scientific papers, financial reports, medical bills) may require different parsing strategies. It is essential to tailor the parsing approach to the specific needs of the document set.
+
+
+<mark>**Key Takeaways:**
+- If a parser works for me doesn't mean it will work for you.
+- THere is no universal best, but it depends of the type of documents you are working on. 
+- (Based on my testing and experience, on textual pdfs) Llama parser > Unstructured > tesseractOCR > pypdf.
+- Eval can be useless if the parsing is not efficient.
+  - The libraries performing autoeval rely on the parsed data.
+  - If the data itself doesn't meet golden standard, evaluations can be fallacious.
+  - Human eval is necessary, a test case can be prepared, that should be performed from the direct sources of data. 
+
+
+---
+
 **Reducing Hallucinations from RAG**
 - Using prompt template: 
   - Final input to the input: RAG data + query_prompt
@@ -21,4 +51,3 @@
 6. Tools and Libraries:
    - LangChain: A popular framework for building RAG systems that offers various components for addressing hallucinations, such as `RetrievalQA` with confidence estimation and source verification.
    - Haystack: An open-source framework for building NLP applications that includes tools for evaluating and mitigating hallucinations in RAG systems.
-  - 
