@@ -152,7 +152,6 @@ Lets talk about them one by one.
 #### LSTM
 ![Alt text](image-7.png)
   - [Animation link](https://packaged-media.redd.it/afzlbpt2ncg81/pb/m2-res_720p.mp4?m=DASHPlaylist.mpd&v=1&e=1722204000&s=961305c3c0633ec1c3def4dca2681f828101cc0e#t=0)
-  Certainly! Let's delve deeper into the Long Short-Term Memory (LSTM) networks, focusing on their architecture, advantages, disadvantages, and practical applications. This extended version will be suitable for interviews, exams, and in-depth study.
 
 **LSTM Architecture**
 
