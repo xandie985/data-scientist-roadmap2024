@@ -162,13 +162,14 @@ Resources:
     * **Hyperparameter Tuning:** Experiment with different learning rates and schedules to find what works best for specific model and data.
     * **Learning Rate Finder:** Start with a very small learning rate and gradually increase it until the loss starts to diverge.  This gives an idea of the optimal range, rather than starting too high and risking instability.
 
-* **Additional Considerations:**
+* **Additional Considerations While Using High LR:**
   * **Batch Size**
     * **Larger batch sizes can allow for higher learning rates due to less noisy gradient estimates.**
 
     - **Gradient Estimates:** When training a model, the gradient of the loss function with respect to the model parameters is computed. This gradient indicates the direction and magnitude of change needed to update the parameters to minimize the loss.
     - **Noise in Gradients:** With smaller batch sizes, the gradient estimates can be noisy because they are based on a smaller subset of the data. This noise can cause erratic updates to the model parameters.
     - **Larger Batches:** Larger batch sizes provide a more accurate estimate of the true gradient since they are computed over a larger portion of the dataset. This reduced noise allows for more confident updates, which in turn can support higher learning rates without causing the model to diverge.
+    - Although large batch sizes help in Works well when combined with LR Schedules, because with time the LR decreases
 
   * **Data Normalization**
     * **Normalized data can help stabilize training and allow for higher learning rates.**

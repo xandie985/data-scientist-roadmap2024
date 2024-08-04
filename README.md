@@ -171,6 +171,17 @@ I've categorized them based on difficulty:
 
 ### **Interviews**
 - [AI Engineer](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/Interviews/int1.md), a Startup in Finance & Crypto
+- [Interview 2](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/Interviews/int2.md), a medium size startup
+- [Interview 3](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/Interviews/int3.md), a large size company
+- [Interview 4](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/Interviews/int4.md), a large size company
+- [Interview 5](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/Interviews/int5.md), a mid size company
+
+**Notes and Study Material**
+- Neural Networks
+  - [Part 1:](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/Notes/001neural_networks.md) Basics, Gradient Descent, Backpropagation, Learning Rate, Activation Functions.
+  - [Part 2:](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/Notes/002neural_networks.md) Premitive systems, RNN,  GRU and LSTM, Transformers, BERT
+  - [A quick recap](https://github.com/xandie985/data-scientist-roadmap2024/blob/main/Notes/004neural_networks_summary.md), designed for last review before any interview.
 
 **Work in progress:**
 1. Updating the pytorch material with notebooks containing code & concepts.(3/20 done)
+2. Updating notes for Neural Networks consisting on basics, RNN, GRU, LSTM, Tranformers, etc. 
