@@ -34,3 +34,18 @@ These are some main points, the interviewer crossed questioned on these topics a
 13. Encoder, Decoder models, working.
 14. Gaurdrailing and RedTeaming for LLMs. 
 ---
+
+**Take Home Assignment**
+- To be completed within 7 days, with ppt and report. 
+
+**Technical Interview**
+- Project presentation
+- Cross Questioning on the steps, methodologies.
+- Further Questions on LLMs
+  - Query Expansion?
+  - Lost in the middle reference
+  - How to choose the right chunk size?
+  - Graph DB for RAG
+  - When to use RAG, when to fine-tune the LLM
+  - Why LLM so sucessfull in predicting the next word ?
+
